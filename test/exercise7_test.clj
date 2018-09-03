@@ -3,13 +3,27 @@
               [exercise7 :refer :all]))
 
 (deftest fmap-list
-  (testing "Maps values in a list."
-   (is (= (fmap inc (list 1 2 3)) (list 2 3 4)))))
+  	(testing "second-element"
+		( is (= (enesimo 2 '(4 5 6 7)) 6) )
+	)
+)
+
+(deftest fmap-list
+  	(testing "second-element"
+		(is (= (enesimo 0 [:a :b :c]) :a))
+	)
+)
+
+(deftest fmap-list
+  	(testing "second-element"
+		(is (= (enesimo 1 [1 2 3 4]) 2))
+	)
+)
+
+(deftest fmap-list
+  	(testing "second-element"
+		(is (= (enesimo 2 '([1 2] [3 4] [5 6])) [5 6]))
+	)
+)
    
-(deftest fmap-vector
-  (testing "Maps values in a vector."
-   (is (= (fmap inc [1 2 3 4]) [2 3 4 5]))))
-			    
-(deftest fmap-map
-  (testing "Maps values in a map."
-   (is (= (fmap inc {:a 1 :b 2}) {:a 2 :b 3}))))
+
