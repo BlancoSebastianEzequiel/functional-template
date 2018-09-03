@@ -2,18 +2,22 @@
   (:require [clojure.test :refer :all]
             [exercise5 :refer :all]))
 
-(deftest flast-of-array-of-numbers
-  (testing "Returns the last element of an array of numbers."
-    (is (= (flast [1 2 3 4 5]) 5))))
+(deftest summary-array
+  (testing "Tests sum applied to an array of numbers."
+    (is (= (sumar [1 2 3]) 6))))
 
-(deftest flast-of-a-list-of-numbers
-  (testing "Returns the last element of a list of numbers."
-    (is (= (flast '(5 4 3)) 3))))
+(deftest summary-list
+  (testing "Tests sum applied to a list of numbers."
+    (is (= (sumar (list 0 -2 5 5)) 8))))	
+	
+(deftest summary-set
+  (testing "Tests sum applied to a set of numbers."
+    (is (= (sumar #{4 2 1}) 7))))	
+	
+(deftest summary-negative
+  (testing "Tests sum applied to a sequence with negative numbers."
+    (is (= (sumar '(0 0 -1)) -1))))
 
-(deftest flast-of-array-of-strings
-  (testing "Returns the last element of an array of strings."
-    (is (= (flast ["a" "b" "c" "d"]) "d"))))
-
-(deftest flast-of-a-list-of-strings
-  (testing "Returns the last element of a list of strings."
-    (is (= (flast '("a" "b" "c")) "c"))))
+(deftest summary-positive
+  (testing "Tests sum applied to a sequence with all positive numbers."
+    (is (= (sumar '(1 10 3)) 14))))
